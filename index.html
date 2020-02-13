@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Mymoid payment form example</title>
+  </head>
+  <body>
+    <h1>
+      Embed Mymoid payment form example:
+    </h1>
+    To generate a new payment order press
+    <a
+      href="https://codesandbox.io/s/github/denjalonso/new-payment-order-example"
+      target="blank"
+      >here</a
+    >
+    <hr />
+    Paste shortcode here: <input data-bind="shortcode" type="text" /> and press
+    enter
+    <hr />
+    <iframe
+      src="https://sandbox.mymoid.com/tpv/?p=RZN4H2&urlko=https://www.mymoid.com/&urlok=https://www.mymoid.com/"
+      frameborder="0"
+      style="width:100%; height:600px;"
+    ></iframe>
+
+    <script>
+      let input = document.querySelector("input[data-bind=shortcode]");
+
+      function handleUpdate(e) {
+        console.log("hola");
+        document
+          .querySelector("iframe")
+          .setAttribute(
+            "src",
+            `https://sandbox.mymoid.com/tpv/?p=${
+              e.target.value
+            }&urlko=https://www.mymoid.com/&urlok=https://www.mymoid.com/`
+          );
+      }
+      input.addEventListener("change", handleUpdate);
+    </script>
+  </body>
+</html>
